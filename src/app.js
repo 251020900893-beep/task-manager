@@ -46,7 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function addTask(text, priority) {
     const li = document.createElement('li');
-    li.textContent = text + ' - ' + priority;
+
+    const span = document.createElement('span');
+    span.textContent = text + ' - ' + priority;
+    li.appendChild(span);
 
     const delBtn = document.createElement('button');
     delBtn.className = 'delete-btn';
