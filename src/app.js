@@ -1,68 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const app = document.getElementById('app');
+ const app = document.getElementById('app');
 
-  // Tạo form thêm task
-  const form = document.createElement('form');
+ // Create form
+ const form = document.createElement('form');
 
-  const input = document.createElement('input');
-  input.type = 'text';
-  input.placeholder = 'Nhập công việc mới...';
-  input.required = true;
+ const input = document.createElement('input');
+ input.type = 'text';
+ input.placeholder = 'Nhập công việc mới...';
+ input.required = true;
 
-  const prioritySelect = document.createElement('select');
-  const options = ['Thấp', 'Trung bình', 'Cao'];
-  options.forEach(option => {
-    const opt = document.createElement('option');
-    opt.value = option.toLowerCase();
-    opt.textContent = option;
-    prioritySelect.appendChild(opt);
-  });
+ const prioritySelect = document.createElement('select');
+ const options = ['Thấp', 'Trung bình', 'Cao'];
+ options.forEach(option => {
+ const opt = document.createElement('option');
+ opt.value = option.toLowerCase();
+ opt.textContent = option;
+ prioritySelect.appendChild(opt);
+ });
 
-  const button = document.createElement('button');
-  button.type = 'submit';
-  button.textContent = 'Thêm';
+ const addButton = document.createElement('button');
+ addButton.textContent = 'Thêm';
+ addButton.type = 'submit';
 
-  form.appendChild(input);
-  form.appendChild(prioritySelect);
-  form.appendChild(button);
+ form.appendChild(input);
+ form.appendChild(prioritySelect);
+ form.appendChild(addButton);
 
-  // Tạo danh sách công việc
-  const taskList = document.createElement('ul');
-  taskList.id = 'task-list';
+ // Create task list
+ const taskList = document.createElement('ul');
+ taskList.id = 'task-list';
 
-  app.appendChild(form);
-  app.appendChild(taskList);
+ app.appendChild(form);
+ app.appendChild(taskList);
 
-  // Xử lý sự kiện submit form
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const taskText = input.value.trim();
-    const priority = prioritySelect.value;
-    if (taskText) {
-      addTask(taskText, priority);
-      input.value = '';
-      prioritySelect.selectedIndex = 0;
-    }
-  });
+ // Handle submit
+ form.addEventListener('submit', function(e) {
+ e.preventDefault();
+ const taskText = input.value.trim();
+ const priority = prioritySelect.value;
 
-  function addTask(text, priority) {
-    const li = document.createElement('li');
-    li.className = 'task-item';
-    const span = document.createElement('span');
-    span.textContent = `${text} `;
-    const badge = document.createElement('span');
-    badge.className = `badge priority-${priority}`;
-    badge.textContent = priority.charAt(0).toUpperCase() + priority.slice(1);
-    const delBtn = document.createElement('button');
-    delBtn.className = 'delete-btn';
-    delBtn.textContent = 'Xóa';
-    delBtn.addEventListener('click', () => {
-      li.remove();
-    });
+ if (taskText) {
+ addTask(taskText, priority);
+ input.value = '';
+ }
+ });
 
-    li.appendChild(span);
-    li.appendChild(badge);
-    li.appendChild(delBtn);
-    taskList.appendChild(li);
-  }
+ function addTask(text, priority) {
+ const li = document.createElement('li');
+ 
+ // Task content
+ const span = document.createElement('span');
+ span.textContent = `${text} - Độ ưu tiên: ${priority}`;
+ 
+ // Delete button
+ const deleteBtn = document.createElement('button');
+ deleteBtn.textContent = 'Xóa';
+ deleteBtn.className = 'delete-btn';
+ deleteBtn.onclick = function() {
+    li.remove();
+ };
+
+ li.appendChild(span);
+ li.appendChild(deleteBtn);
+ taskList.appendChild(li);
+ }
 });
