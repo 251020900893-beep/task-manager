@@ -12,11 +12,10 @@ form {
 input {
   padding: 8px;
   width: 300px;
-  margin-right: 8px;
 }
 select {
   padding: 8px;
-  margin-right: 8px;
+  margin-left: 10px;
 }
 button {
   padding: 8px 15px;
@@ -24,27 +23,22 @@ button {
   color: white;
   border: none;
   cursor: pointer;
-}
-button.delete-btn {
-  background: #e74c3c;
   margin-left: 10px;
 }
-#task-list {
-  list-style: none;
+button.delete-btn {
+  background: #f44336;
+}
+ul {
+  list-style-type: none;
   padding: 0;
 }
-.task-item {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
+li {
+  margin: 10px 0;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
 }
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  margin-left: 8px;
-  border-radius: 4px;
-  color: white;
-  font-size: 12px;
-}
-.priority-thấp { background: #6c757d; }
-.priority-trung bình { background: #ffc107; color: #333; }
-.priority-cao { background: #dc3545; }
