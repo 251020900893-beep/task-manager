@@ -1,50 +1,37 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 20px;
 }
 h1 {
-  color: #333;
+ color: #333;
 }
 form {
-  margin: 20px 0;
+ margin: 20px 0;
 }
 input {
-  padding: 8px;
-  width: 300px;
-  margin-right: 8px;
+ padding: 8px;
+ width: 300px;
+ margin-right: 10px;
 }
 select {
-  padding: 8px;
-  margin-right: 8px;
+ padding: 8px;
+ margin-right: 10px;
 }
 button {
-  padding: 8px 15px;
-  background: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
+ padding: 8px 15px;
+ background: #4CAF50;
+ color: white;
+ border: none;
+ cursor: pointer;
 }
-button.delete-btn {
-  background: #e74c3c;
-  margin-left: 10px;
+li {
+    margin-bottom: 5px;
+    list-style: none;
 }
-#task-list {
-  list-style: none;
-  padding: 0;
+li button {
+    background: #f44336; /* Red for delete */
+    margin-left: 10px;
+    padding: 4px 8px;
+    font-size: 0.8em;
 }
-.task-item {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-}
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  margin-left: 8px;
-  border-radius: 4px;
-  color: white;
-  font-size: 12px;
-}
-.priority-thấp { background: #6c757d; }
-.priority-trung bình { background: #ffc107; color: #333; }
-.priority-cao { background: #dc3545; }
