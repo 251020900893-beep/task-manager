@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const options = ['Thấp', 'Trung bình', 'Cao'];
   options.forEach(option => {
     const opt = document.createElement('option');
-    opt.value = option.toLowerCase();
+    opt.value = option;
     opt.textContent = option;
     prioritySelect.appendChild(opt);
   });
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Tạo danh sách công việc
   const taskList = document.createElement('ul');
-  taskList.id = 'task-list';
 
   app.appendChild(form);
   app.appendChild(taskList);
@@ -47,12 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function addTask(text, priority) {
     const li = document.createElement('li');
-    li.className = 'task-item';
-    const span = document.createElement('span');
-    span.textContent = `${text} `;
-    const badge = document.createElement('span');
-    badge.className = `badge priority-${priority}`;
-    badge.textContent = priority.charAt(0).toUpperCase() + priority.slice(1);
+    li.textContent = text + ' - ' + priority;
+
     const delBtn = document.createElement('button');
     delBtn.className = 'delete-btn';
     delBtn.textContent = 'Xóa';
@@ -60,8 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
       li.remove();
     });
 
-    li.appendChild(span);
-    li.appendChild(badge);
     li.appendChild(delBtn);
     taskList.appendChild(li);
   }
