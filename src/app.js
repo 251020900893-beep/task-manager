@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const button = document.createElement('button');
-  button.type = 'submit';
   button.textContent = 'Thêm';
 
   form.appendChild(input);
@@ -41,28 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (taskText) {
       addTask(taskText, priority);
       input.value = '';
-      prioritySelect.selectedIndex = 0;
     }
   });
 
   function addTask(text, priority) {
     const li = document.createElement('li');
-    li.className = 'task-item';
-    const span = document.createElement('span');
-    span.textContent = `${text} `;
-    const badge = document.createElement('span');
-    badge.className = `badge priority-${priority}`;
-    badge.textContent = priority.charAt(0).toUpperCase() + priority.slice(1);
-    const delBtn = document.createElement('button');
-    delBtn.className = 'delete-btn';
-    delBtn.textContent = 'Xóa';
-    delBtn.addEventListener('click', () => {
-      li.remove();
-    });
+    li.textContent = `${text} (Ưu tiên: ${priority})`;
 
-    li.appendChild(span);
-    li.appendChild(badge);
-    li.appendChild(delBtn);
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Xóa';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.onclick = function() {
+      li.remove();
+    };
+
+    li.appendChild(deleteBtn);
     taskList.appendChild(li);
   }
 });
