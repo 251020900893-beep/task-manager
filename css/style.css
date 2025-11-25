@@ -1,50 +1,47 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
 }
 h1 {
-  color: #333;
+    color: #333;
 }
 form {
-  margin: 20px 0;
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
 }
 input {
-  padding: 8px;
-  width: 300px;
-  margin-right: 8px;
+    padding: 8px;
+    width: 300px;
 }
 select {
-  padding: 8px;
-  margin-right: 8px;
+    padding: 8px;
 }
 button {
-  padding: 8px 15px;
-  background: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
+    padding: 8px 15px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
-button.delete-btn {
-  background: #e74c3c;
-  margin-left: 10px;
+button:hover {
+    opacity: 0.8;
 }
-#task-list {
-  list-style: none;
-  padding: 0;
+ul {
+    list-style-type: none;
+    padding: 0;
 }
-.task-item {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
+li {
+    background: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
 }
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  margin-left: 8px;
-  border-radius: 4px;
-  color: white;
-  font-size: 12px;
+.delete-btn {
+    background: #ff4444;
+    margin-left: 10px;
 }
-.priority-thấp { background: #6c757d; }
-.priority-trung bình { background: #ffc107; color: #333; }
-.priority-cao { background: #dc3545; }
