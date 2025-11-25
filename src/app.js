@@ -10,11 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
   input.required = true;
 
   const prioritySelect = document.createElement('select');
-  const options = ['Thấp', 'Trung bình', 'Cao'];
+  const options = [
+    { label: 'Thấp', value: 'thap' },
+    { label: 'Trung bình', value: 'trungbinh' },
+    { label: 'Cao', value: 'cao' }
+  ];
   options.forEach(option => {
     const opt = document.createElement('option');
-    opt.value = option.toLowerCase();
-    opt.textContent = option;
+    opt.value = option.value;
+    opt.textContent = option.label;
     prioritySelect.appendChild(opt);
   });
 
@@ -38,21 +42,22 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const taskText = input.value.trim();
     const priority = prioritySelect.value;
+    const priorityLabel = prioritySelect.options[prioritySelect.selectedIndex].textContent;
     if (taskText) {
-      addTask(taskText, priority);
+      addTask(taskText, priority, priorityLabel);
       input.value = '';
       prioritySelect.selectedIndex = 0;
     }
   });
 
-  function addTask(text, priority) {
+  function addTask(text, priority, priorityLabel) {
     const li = document.createElement('li');
     li.className = 'task-item';
     const span = document.createElement('span');
     span.textContent = `${text} `;
     const badge = document.createElement('span');
     badge.className = `badge priority-${priority}`;
-    badge.textContent = priority.charAt(0).toUpperCase() + priority.slice(1);
+    badge.textContent = priorityLabel;
     const delBtn = document.createElement('button');
     delBtn.className = 'delete-btn';
     delBtn.textContent = 'Xóa';
