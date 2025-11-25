@@ -8,15 +8,26 @@ h1 {
 }
 form {
   margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
 }
 input {
   padding: 8px;
   width: 300px;
-  margin-right: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s ease;
+}
+input:focus {
+  outline: none;
+  border-color: #4CAF50;
 }
 select {
   padding: 8px;
-  margin-right: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 button {
   padding: 8px 15px;
@@ -24,10 +35,18 @@ button {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+button:hover {
+  background: #45a049;
 }
 button.delete-btn {
   background: #e74c3c;
   margin-left: 10px;
+}
+button.delete-btn:hover {
+  background: #c0392b;
 }
 #task-list {
   list-style: none;
